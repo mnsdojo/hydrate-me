@@ -1,11 +1,10 @@
-import React from 'react'
+import useInterval from "./hooks/useInterval";
 
 function App() {
-  return (
-    <div>
-      
-    </div>
-  )
+  useInterval(() => {
+    console.log("hello");
+  }, 1000);
+  return <div></div>;
 }
 
-export default App
+export default App;
