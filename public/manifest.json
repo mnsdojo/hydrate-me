@@ -2,12 +2,25 @@
   "manifest_version": 3,
   "name": "Hydrate-me",
   "version": "1.0",
-  "permissions": ["alarms","notifications","storage"],
+  "permissions": ["alarms", "notifications", "storage", "activeTab"],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
     "default_popup": "index.html",
     "default_icon": "icon.png"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"], 
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["bundle.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
